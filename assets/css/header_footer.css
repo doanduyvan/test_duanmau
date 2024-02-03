@@ -255,7 +255,15 @@
     display: block;
     /* animation: sub-menu 0.2s linear; */
 }
-
+.block-nav .title{
+    display: none;
+}
+.overlay{
+    background-color: rgba(219, 218, 218,0.5);
+    position: fixed;
+    inset: 0;
+    display: none;
+}
 
 @keyframes sub-menu {
     from{
@@ -268,6 +276,13 @@
     }
 }
 
+.header .close-menu{
+    /* position: absolute; */
+    display: none;
+}
+.header .close-menu svg{
+    width: 20px;
+}
 
 .temp1{
     width: 100%;
@@ -277,14 +292,17 @@
 
 @media (max-width: 1024px){
     .header .block-nav{
+        --width-left : 320px;
         display: block;
         position: fixed;
         background-color: white;
-        width: 320px;
+        width: var(--width-left);
         top: 0;
-        left: 0;
+        left: calc(0px - var(--width-left));
         bottom: 0;
         overflow-y: auto;
+        z-index: 1;
+        transition: .3s linear;
     }
     .header .block-nav .title{
         text-align: center;
@@ -298,8 +316,10 @@
     }
     .header .block-nav .menu-primary>li{
         /* background-color: aqua; */
-        border-top: 1px solid gray;
         padding-left: 10px;
+    }
+    .header .block-nav .menu-primary>li+li{
+        border-top: 1px solid gray;
     }
     .header .block-nav .menu-primary>li+li::before{
         content: '>';
@@ -359,6 +379,22 @@
         border-top: 1px solid gray !important;
     }
 
+    .header .close-menu{
+        display: block;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+    }
+    .header .close-menu:hover svg{
+        fill: red;
+    }
+
+    .check:checked ~ .block-nav{
+        left: 0;
+    }
+    .check:checked ~ .overlay{
+        display: block;
+    }
 }
 
 
