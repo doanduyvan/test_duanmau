@@ -5,12 +5,21 @@ function DomALL(element) {
     return document.querySelectorAll(element);
 }
 
-window.addEventListener('load',()=>{
+document.addEventListener('DOMContentLoaded',()=>{
     
-    // const menu_mobile = Dom('#menu-mobile');
-    // menu_mobile.addEventListener('click',()=>{
-    //     tonggle_check();
-    // });
+const icon_user = Dom('#icon_user');
+const sub_user = Dom('#sub_user'); 
+
+icon_user.addEventListener('click',()=>{
+    sub_user.classList.toggle('check');
+});
+document.addEventListener('click',function(e){
+    const element = e.target;
+    if(!icon_user.contains(element) && !sub_user.contains(element)){
+        console.log('xóa');
+    sub_user.classList.remove('check');
+    }
+});
 
 
 });   
