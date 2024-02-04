@@ -1,0 +1,52 @@
+.slide_banner .content_img{
+    position: relative;
+}
+.slide_banner .item{
+    width: 100%;
+    overflow: hidden;
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.slide_banner img{
+    width: 100%;
+    filter: brightness(0.92);
+}
+.slide_banner .dots{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.slide_banner .dots .dot{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    border-radius: 50%;
+    border: 3px solid white;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.item.active_banner{
+    position: relative;
+    display: block;
+    animation: fade_banner 0.5s linear forwards;
+}
+
+@keyframes fade_banner{
+    from{
+        opacity: 0.2;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.dot.dot_act{
+    /* transition: .4s linear; */
+    background-color: white !important;
+}
