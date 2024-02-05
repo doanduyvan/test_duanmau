@@ -12,7 +12,7 @@ var content = ` <div class= 'col l-2-4 m-4 c-6'>
     </a>
     <div class= 'btn-info'>
         <div class= 'price'>
-            <span class= 'price_new'>1,350,000<span class= 'icon_price'>₫</span></span>
+            <span class= 'price_new'>1,350<span class= 'icon_price'>₫</span></span>
             <del>2,450,000<span class= 'icon_price'>₫</span></del>
         </div>
         <div class= 'btn_product'>
@@ -25,14 +25,16 @@ var content = ` <div class= 'col l-2-4 m-4 c-6'>
 
 
 const in_products = document.getElementById('in_products');
-// console.log(in_products)
+const in_products1 = document.getElementById('in_products_1');
+
 
 var contentsall = '';
 
-for(let i = 0;i <= 15 ; i ++){
+for(let i = 0;i < 10 ; i ++){
     contentsall += content;
 }
 
 in_products.textContent = '';
 
 in_products.innerHTML = contentsall;
+in_products1.innerHTML = contentsall;

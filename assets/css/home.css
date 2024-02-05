@@ -58,7 +58,10 @@
     padding: 15px;
     text-align: center;
 }
-
+.products_all{
+    padding-bottom: 30px;
+    /* background-color: #1b4ea0; */
+}
 .products_all .product{
     position: relative;
     box-shadow: 0 0 5px gray;
@@ -138,6 +141,8 @@
     line-height: 2rem;
     padding-top: 10px;
     padding: 5px;
+    max-height: 68px;
+    overflow: hidden;
 }
 .products_all .product .name_product:hover{
     color: #1b4ea0;
@@ -173,6 +178,8 @@
 .products_all .product .btn-info .btn_product{
     display: flex;
     flex-wrap: wrap;
+    gap: 1px;
+    padding: 1px;
 }
 .products_all .product .btn-info .btn_product a{
     display: block;
@@ -190,11 +197,18 @@
     padding-left: 10px;
     padding-right: 10px;
     background-color: rgb(213, 32, 32);
+
+    
 }
 .products_all .product .btn-info .btn_product a:last-child{
     flex: 1;
 }
-
+.products_all .product .btn-info .btn_product a:hover{
+    box-shadow: inset 0 0 5px rgba(216, 214, 214,0.7),
+    inset 0 0 7px rgb(129, 127, 127),
+    inset -5px -5px 10px rgba(252, 252, 252,0.7);
+    /* border: 1px solid gray; */
+}
 @media (max-width: 1300px){
     .products_all .product .btn-info .btn_product{
         flex-direction: column;
@@ -203,4 +217,67 @@
         padding-top: 10px;
         padding-bottom: 10px;
     }
+}
+
+.banner_discount{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.banner_discount img{
+    width: 100%;
+}
+
+.banner_discount .content{
+    position: relative;
+}
+.banner_discount .content::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgb(223, 237, 237);
+    opacity: 0;
+    animation: bn_dc 2s linear infinite;
+}
+
+@keyframes bn_dc{
+   0%{
+    opacity: 0;
+   }
+   20%{
+    opacity: 0.4;
+   }
+   100%{
+    opacity: 0;
+   }
+}
+
+.banner_sub .content{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.banner_sub .content img{
+    transition: .3s linear;
+}
+.banner_sub .content img:hover{
+    transform: scale(1.1);
+}
+.banner_sub .content::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background-color: rgba(252, 252, 252,0.4);
+    top: 50%;
+    left: -40%;
+    translate: -50% -50%;
+    rotate: -45deg;
+    z-index: 1;
+    transition: .6s linear;
+    cursor: pointer;
+}
+
+.banner_sub .content:hover::before{
+    left: 140%;
 }
